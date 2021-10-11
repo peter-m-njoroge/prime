@@ -1,0 +1,860 @@
+Manager:
+    Welcome:
+        name:"welcome"
+        WelcomePages:
+            WelcomeMainLayout:
+                canvas.before:
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+                        source: "pbbackground.jpg"
+                orientation:"vertical"
+                Box2:
+                    orientation:"vertical"
+                    Image:
+                        stretch: True
+                        source:"primelogo.jpg"
+                    Box1:
+                        orientation:"vertical"
+                        Label:
+                            canvas.before:
+                                Color:
+                                    rgba: (0,.0,.1,.7)
+                                Rectangle:
+                                    size:self.size
+                                    pos:self.pos
+                            text: "PRIME BANK"
+                            color: 0,1,1,1
+                            size_hint:(1,.1)
+
+                        Label:
+                            canvas.before:
+                                Color:
+                                    rgba: (0,.0,.1,.7)
+                                Rectangle:
+                                    size:self.size
+                                    pos:self.pos
+                            text: "SAFE DEPOSIT ACCESS "
+                            color: 0,1,1,1
+                            size_hint:(1,.1)
+
+                        Label:
+                            canvas.before:
+                                Color:
+                                    rgba: (0,.0,.1,.7)
+                                Rectangle:
+                                    size:self.size
+                                    pos:self.pos
+                            text: "AND VERIFICATION "
+                            color: 0,1,1,1
+                            size_hint:(1,.1)
+                        Label:
+                            canvas.before:
+                                Color:
+                                    rgba: (0,.0,.1,.7)
+                                Rectangle:
+                                    size:self.size
+                                    pos:self.pos
+                            text: "SYSTEM."
+                            color: 0,1,1,1
+                            size_hint:(1,.1)
+                    Label:
+                        canvas.before:
+                            Color:
+                                rgba: (0,.0,.1,.7)
+                            Rectangle:
+                                size:self.size
+                                pos:self.pos
+                        text: "Slide Right To Continue"
+                        color: .6,.4,.7,1
+                        size_hint:(1,.1)
+
+            Page2:
+                canvas.before:
+                    Color:
+                        rgba: (.5,.2,.6,1)
+                    Rectangle:
+                        size:self.size
+                        pos:self.pos
+                Box3:
+                    Label:
+                    Box4:
+                        orientation:"vertical"
+                        Image:
+                            stretch: True
+                            source:"primelogo.jpg"
+                        Button:
+                            pos_hint_x:.5
+                            size_hint:(1,.2)
+                            text:"Log in As Attendant"
+                            color:1,0,0,1
+                            background_color:(0,1,0,1)
+                            on_press:root.current="AttendantsLogin"
+                        Button:
+                            pos_hint_x:.5
+                            size_hint:(1,.2)
+                            text:"Register As A New Attendant"
+                            color:1,0,0,1
+                            background_color:(.1,.4,.9,1)
+                            on_release: root.registatt()
+
+                        Label:
+                            pos_hint_x:.5
+                            size_hint:(1,.2)
+                        Button:
+                            pos_hint_x:.5
+                            size_hint:(1,.2)
+                            text:"Admin Log In"
+                            color:1,0,0,1
+                            background_color:(0,1,0,1)
+                            on_press:root.current="AdminLogin"
+                        Button:
+                            pos_hint_x:.5
+                            size_hint:(1,.2)
+                            text:"Exit"
+                            color:1,1,1,1
+                            background_color:(1,0,0,1)
+                            on_press:app.exitapp()
+
+                        Box5:
+                            orientation:"vertical"
+                            Label:
+                                text:"Select An Option Above"
+                                color:0,0,1,1
+
+                    Label:
+
+    RegisterAttendant:
+        name:"registeratt"
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba:(.2,.3,.6,.7)
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            orientation:"vertical"
+            BoxLayout:
+                size_hint:(1,.1)
+                Label:
+                    size_hint:(.3,.1)
+                    pos_hint_y:1
+                Label:
+                    size_hint:(.4,.1)
+                    pos_hint_y:1
+                    text:"ATTENDANTS REGISTRATION"
+                Label:
+                    size_hint:(.2,.1)
+                    pos_hint_y:1
+                Button:
+                    size_hint:(.1,.1)
+                    background_color:(0,0,1)
+                    text:"Back"
+                    pos_hint_y:1
+                    on_release:root.current="welcome"
+            BoxLayout:
+                size_hint:(1,.7)
+                BoxLayout:
+                    orientation:"vertical"
+                    Label:
+                        size_hint:(1,.12)
+                    Label:
+                        size_hint:(1,.11)
+                        text:"First Name"
+                    Label:
+                        size_hint:(1,.11)
+                        text:"Middle Name"
+                    Label:
+                        size_hint:(1,.11)
+                        text:"Last Name"
+                    Label:
+                        size_hint:(1,.11)
+                        text:"Gender (M/F)"
+                    Label:
+                        size_hint:(1,.11)
+                        text:"Year Of Birth"
+                    Label:
+                        size_hint:(1,.11)
+                        text:"ID Number"
+                    Label:
+                        size_hint:(1,.11)
+                        text:"Password"
+                    Label:
+                        size_hint:(1,.11)
+                        text:"Confirm Password"
+
+                BoxLayout:
+                    orientation:"vertical"
+                    Label:
+                        size_hint:(1,.12)
+                    TextInput:
+                        id:att_first
+                        size_hint:(1,.11)
+                        multiline:False
+                        text_hint:"Eg: Peter"
+                        focus:True
+                        on_text_validate:att_sec.focus=True
+                    TextInput:
+                        id:att_sec
+                        size_hint:(1,.11)
+                        multiline:False
+                        on_text_validate:att_third.focus=True
+                        text_hint:"Eg: Muchina"
+                    TextInput:
+                        id:att_third
+                        size_hint:(1,.11)
+                        multiline:False
+                        on_text_validate:att_gen.focus=True
+                        text_hint:"Eg: Njoroge"
+                    TextInput:
+                        id:att_gen
+                        size_hint:(1,.11)
+                        multiline:False
+                        on_text_validate:att_yob.focus=True
+                        text_hint:"Eg: M "
+                    TextInput:
+                        id:att_yob
+                        size_hint:(1,.11)
+                        multiline:False
+                        on_text_validate:att_id.focus=True
+                        text_hint:"YYYY  Eg: 1996"
+                    TextInput:
+                        id:att_id
+                        size_hint:(1,.11)
+                        multiline:False
+                        on_text_validate:att_passw.focus=True
+                        text_hint:" Eg: 12345678"
+                    TextInput:
+                        id:att_passw
+                        size_hint:(1,.11)
+                        multiline:False
+                        password:True
+                        on_text_validate:att_conf_passw.focus=True
+                    TextInput:
+                        id:att_conf_passw
+                        size_hint:(1,.11)
+                        password:True
+                        multiline:False
+                        on_text_validate: root.validate_att_reg()
+
+                BoxLayout:
+                    orientation:"vertical"
+                    Label:
+                        size_hint:(1,.12)
+                    Label:
+                        id:validate_fname
+                        size_hint:(1,.11)
+                        color:(1,0,0)
+                        text:''
+                    Label:
+                        id:validate_mname
+                        size_hint:(1,.11)
+                        color:(1,0,0)
+                        text:''
+                    Label:
+                        id:validate_lname
+                        size_hint:(1,.11)
+                        color:(1,0,0)
+                        text:''
+                    Label:
+                        id:validate_gen
+                        size_hint:(1,.11)
+                        color:(1,0,0)
+                        text:''
+                    Label:
+                        id:validate_yob
+                        size_hint:(1,.11)
+                        color:(1,0,0)
+                        text:''
+                    Label:
+                        id:validate_id
+                        size_hint:(1,.11)
+                        color:(1,0,0)
+                        text:''
+                    Label:
+                        id:validate_passw
+                        size_hint:(1,.11)
+                        color:(1,0,0)
+                        text:''
+                    Label:
+                        id:validate_passwconf
+                        size_hint:(1,.11)
+                        color:(1,0,0)
+                        text:''
+
+
+            BoxLayout:
+                orientation:"vertical"
+                size_hint:(1,.1)
+                Label:
+                    id:attregist_feedback
+                    color:(0,1,0)
+                    size_hint:(.3,.6)
+                ToggleButton:
+                    id:togglesub
+                    size_hint:(1,.4)
+                    background_color:(0,0,1)
+                    text:"SUBMIT"
+                    disabled:True
+                    on_press:root.add_attendant()
+    RegisterAttendantSuccess:
+        name:"RegisterAttendantSuccess"
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgba:(.5,.4,.8,1)
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            orientation:"vertical"
+            Image:
+                stretch: True
+                source:"primelogo.jpg"
+                size_hint:(1,.2)
+            BoxLayout:
+                size_hint:(1,.8)
+                BoxLayout:
+                    orientation:"vertical"
+                    size_hint:(.2,.8)
+                    Label:
+                        size_hint:(1,.8)
+                    Button:
+                        size_hint:(1,.2)
+                        text:"Exit"
+                        background_color:(0,0,1)
+                        on_press:app.exitapp()
+                BoxLayout:
+                    orientation:"vertical"
+                    size_hint:(.8,.8)
+                    id:mydetails
+                BoxLayout:
+                    orientation:"vertical"
+                    size_hint:(.2,.8)
+                    Label:
+                        size_hint:(1,.8)
+                    Button:
+                        size_hint:(1,.2)
+                        text:"Log In"
+                        background_color:(0,0,1)
+                        on_press:root.current="AttendantsLogin"
+    AttendantsLogin:
+        name:"AttendantsLogin"
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgb:(.3,.4,.6)
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            BoxLayout:
+                orientation:"vertical"
+                BoxLayout:
+                    orientation:"vertical"
+                    size_hint:(1,.2)
+                    Image:
+                        stretch: True
+                        source:"primelogo.jpg"
+                        size_hint:(1,.6)
+                    Label:
+                        size_hint:(1,.4)
+                BoxLayout:
+                    size_hint:(1,.6)
+                    BoxLayout:
+                        BoxLayout:
+                            size_hint:(.3,1)
+                            orientation:"vertical"
+                            Label:
+                            Label:
+                                size_hint:(1,None)
+                                height:"30dp"
+                                text:"Employee Id"
+                            Label:
+                                size_hint:(1,None)
+                                height:"30dp"
+                                text:"Password"
+                        BoxLayout:
+                            size_hint:(.4,1)
+                            orientation:"vertical"
+                            Label:
+                            TextInput:
+                                id:attval
+                                multiline:False
+                                size_hint:(1,None)
+                                height:"30dp"
+                                on_text_validate: root.validate_me()
+                            TextInput:
+                                id:attpassval
+                                multiline:False
+                                size_hint:(1,None)
+                                height:"30dp"
+                                disabled:True
+                                password:True
+                                on_text_validate:root.validatepass()
+                        BoxLayout:
+                            size_hint:(.3,1)
+                            orientation:"vertical"
+                            Label:
+                            Label:
+                                size_hint:(1,None)
+                                height:"30dp"
+                                text:""
+                            Label:
+                                id:attpasswarning
+                                size_hint:(1,None)
+                                height:"30dp"
+                                text:""
+                                color:(1,0,0)
+                    Label:
+                        id:employeevalidation
+                        text:""
+                        color:(0,0,1)
+                Label:
+                    id:attvaalinstr
+                    text:"Enter Required Details"
+                    color:(0,0,1)
+
+                BoxLayout:
+                    size_hint:(1,.2)
+                    ToggleButton:
+                        id:loginbutton
+                        size_hint:(.5,1)
+                        text:"LOG IN"
+                        color:(1,1,1)
+                        background_color:(.4,.2,.7)
+                        disabled:True
+                        on_press:root.current="AttendantDashboard"
+
+
+                    Button:
+                        size_hint:(.3,1)
+                        text:"Try Log In Again"
+                        color:(1,1,1)
+                        background_color:(.4,.2,.7)
+                        on_press:root.loginagain()
+                    Button:
+                        size_hint:(.2,1)
+                        text:"BACK"
+                        color:(1,1,1)
+                        background_color:(.4,.2,.7)
+                        on_press:root.current="welcome"
+
+
+
+
+    AttendantsDashboard:
+        name:"AttendantDashboard"
+        BoxLayout:
+            orientation:"vertical"
+            canvas.before:
+                Color:
+                    rgba:(0,0,0,1)
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            Image:
+                stretch:True
+                source:"primelogo.jpg"
+                size_hint:(1,.08)
+            BoxLayout:
+                orientation:"vertical"
+                size_hint:(1,.9)
+                TabbedPanel:
+                    tab_width:200
+                    do_default_tab:False
+                    size_hint:(1,.9)
+                    TabbedPanelItem:
+                        size_hint:(1,1)
+                        text:"My Account"
+                        BoxLayout:
+                            orientation:"vertical"
+                            Label:
+                                size_hint:(1,.1)
+                                text:"Prime Bank Safe Deposit Service Attendant"
+                                font_size:"30dp"
+                                color:(.6,.9,.6)
+                            BoxLayout:
+                                orientation:"vertical"
+                                Label:
+                                    text:"You are logged in as: "
+                                    size_hint:(1,.1)
+                                    color:(1,.5,.3)
+                                BoxLayout:
+                                    size_hint:(1,.1)
+                                    Label:
+                                        text:"Attendant ID"
+                                        color:(.7,.4,.5)
+                                    Label:
+                                        text:"NAME"
+                                        color:(.7,.4,.5)
+                                    Label:
+                                        text:"AGE"
+                                        color:(.7,.4,.5)
+                                BoxLayout:
+                                    size_hint:(1,.8)
+                                    Label:
+                                        id:ide
+                                        text:""
+                                        color:(.3,.5,.7)
+                                    Label:
+                                        id:nam
+                                        text:""
+                                        color:(.3,.5,.7)
+                                    Label:
+                                        id:ag
+                                        text:""
+                                        color:(.3,.5,.7)
+                                Label:
+
+                    TabbedPanelItem:
+                        size_hint:(1,1)
+                        text:"Register A Customer"
+                        BoxLayout:
+                            orientation:"vertical"
+                            BoxLayout:
+                                size_hint:(1,.9)
+                                BoxLayout:
+                                    size_hint:(.25,1)
+                                    orientation:"vertical"
+                                    Label:
+                                        text:"First Name"
+                                    Label:
+                                        text:"Second Name"
+                                    Label:
+                                        text:"Surname"
+                                    Label:
+                                        text:"Gender M/F"
+                                    Label:
+                                        text:"Birth Year"
+                                    Label:
+                                        text:"ID NUmber"
+                                    Label:
+                                        text:"Phone Number"
+                                    Label:
+                                        text:"Email"
+                                    Label:
+                                        text:"PassWord"
+                                    Label:
+                                    Label:
+                                BoxLayout:
+                                    size_hint:(.3,1)
+                                    orientation:"vertical"
+                                    TextInput:
+                                        id:tcustfname
+                                        multiline:False
+                                        disabled:False
+                                        on_text_validate:root.custfnameval()
+                                    TextInput:
+                                        id:tcustmname
+                                        multiline:False
+                                        disabled:True
+                                        on_text_validate:root.custmnameval()
+
+                                    TextInput:
+                                        id:tcustlname
+                                        multiline:False
+                                        disabled:True
+                                        on_text_validate:root.custlnameval()
+                                    TextInput:
+                                        id:tcustgender
+                                        multiline:False
+                                        disabled:True
+                                        on_text_validate:root.custgenval()
+
+                                    TextInput:
+                                        id:tcustbirthyear
+                                        multiline:False
+                                        disabled:True
+                                        on_text_validate:root.custbyearval()
+                                    TextInput:
+                                        id:tcustid
+                                        multiline:False
+                                        disabled:True
+                                        on_text_validate:root.custidval()
+                                    TextInput:
+                                        id:tcustphone
+                                        multiline:False
+                                        disabled:True
+                                        on_text_validate:root.custpval()
+                                    TextInput:
+                                        id:tcustemail
+                                        multiline:False
+                                        disabled:True
+                                        on_text_validate:root.custemval()
+                                    TextInput:
+                                        id:tcustpassword
+                                        multiline:False
+                                        password:True
+                                        disabled:True
+                                        on_text_validate:root.custpassval()
+                                    Label:
+                                        id:lstate
+                                        text:""
+                                        color:(1,0,0)
+                                    Button:
+                                        id:photbutt
+                                        disabled:True
+                                        text:"Save Photo"
+                                        on_press:root.customersp()
+                                BoxLayout:
+                                    size_hint:(.45,1)
+                                    orientation:"vertical"
+                                    id:photobox
+                                    Label:
+                                        id:photoinst
+                                        size_hint:(1,.1)
+                                        text:"Choose Customer Photo"
+                                        color:(0,0,1)
+                                    FileChooserIconView:
+                                        id:chosenpic
+                                        size_hint:(1,.4)
+                                        path:"C':''\'Users'\'PETER M NJOROGE'\'Desktop'\'My_Python'\'prime'\'customerphoto"
+                                        on_selection:root.custphot(chosenpic.selection)
+                                    Image:
+                                        id:piccus
+                                        stretch:True
+                                        source:""
+                            BoxLayout:
+                                size_hint:(1,.1)
+                                Button:
+                                    id:buttclear
+                                    text:"CLEAR"
+                                    background_color:(.9,.4,.6)
+                                    on_press:root.refreshcustreg()
+                                Button:
+                                    id:buttsub
+                                    text:"SUBMIT"
+                                    background_color:(.9,.4,.6)
+                                    disabled:True
+                                    on_press:root.custreg()
+
+                    TabbedPanelItem:
+                        size_hint:(1,1)
+                        text:"Verify A Customer"
+                        BoxLayout:
+                            orientation:"vertical"
+                            BoxLayout:
+                                size_hint:(1,.08)
+                                Label:
+                                    size_hint:(.7,1)
+                                    text:"Enter Customer's National ID Number To Search"
+                                TextInput:
+                                    id:search
+                                    multiline:False
+                                    size_hint:(.3,1)
+                                    on_text_validate:root.searchcus()
+
+                            BoxLayout:
+                                size_hint:(1,.82)
+                                BoxLayout:
+                                    size_hint:(.6,1)
+                                    BoxLayout:
+                                        size_hint:(.2,1)
+                                        orientation:"vertical"
+                                        Label:
+                                            text:"Name"
+                                            color:(.7,.5,.6)
+                                        Label:
+                                            text:"Gender"
+                                            color:(.7,.5,.6)
+                                        Label:
+                                            text:"Age"
+                                            color:(.7,.5,.6)
+                                        Label:
+                                            text:"Email"
+                                            color:(.7,.5,.6)
+                                        Label:
+                                            text:"Phone"
+                                            color:(.7,.5,.6)
+                                    BoxLayout:
+                                        orientation:"vertical"
+                                        size_hint:(.8,1)
+                                        Label:
+                                            id:dfullname
+                                            text:""
+                                            color:(0,1,0)
+                                        Label:
+                                            id:dsex
+                                            text:""
+                                            color:(0,1,0)
+                                        Label:
+                                            id:dage
+                                            text:""
+                                            color:(0,1,0)
+                                        Label:
+                                            id:demail
+                                            text:""
+                                            color:(0,1,0)
+                                        Label:
+                                            id:dphone
+                                            text:""
+                                            color:(0,1,0)
+                                BoxLayout:
+                                    orientation:"vertical"
+                                    size_hint:(.4,1)
+                                    Image:
+                                        id:cuspic
+                                        source:""
+                            BoxLayout:
+                                size_hint:(1,.1)
+                                Label:
+                                    size_hint:(.2,1)
+                                    text:"Customer Password"
+
+                                TextInput:
+                                    id:verpass
+                                    multiline:False
+                                    password:True
+                                    size_hint:(.2,1)
+
+                                Button:
+                                    id:ver
+                                    size_hint:(.2,1)
+                                    text:"Verify"
+                                    color:(.6,.4,.8)
+                                    background_color:(.4,.7,.3)
+                                    on_press: root.valcus()
+                                Label:
+                                    id:vermessage
+                                    size_hint:(.4,1)
+                                    text:""
+                                    color:(1,0,0)
+
+
+
+                    HistoryPanelItem:
+                        size_hint:(1,1)
+                        text:"History"
+                        BoxLayout:
+                            size_hint:(1,1)
+                            height:"20dp"
+                            orientation:"vertical"
+                            BoxLayout:
+                                size_hint:(1,None)
+                                height:"20dp"
+                                Label:
+                                    size_hint:(.1,1)
+                                    text:"TRANSACTION ID"
+                                    color:(.4,.7,.6)
+                                    font_size:10
+
+                                Label:
+                                    size_hint:(.3,1)
+                                    text:"CUSTOMER"
+                                    color:(.4,.7,.5)
+                                    font_size:10
+
+                                Label:
+                                    size_hint:(.3,1)
+                                    text:"ATTENDED BY"
+                                    color:(.4,.7,.5)
+                                    font_size:10
+
+                                Label:
+                                    size_hint:(.3,1)
+                                    text:"TRANSACTION TYPE"
+                                    color:(.4,.7,.5)
+                                    font_size:10
+                            ScrollView:
+                                Historyme:
+                                    id:his
+                                    cols:4
+                                    size_hint:(1,None)
+                                    row_default_height:"40dp"
+                                    row_force_default:True
+                                    height:self.he
+                BoxLayout:
+                    size_hint:(1,.1)
+                    BoxLayout:
+                        Button:
+                            background_color:(.6,.3,.8)
+                            text:"Back"
+                            on_press:root.current="welcome"
+                    BoxLayout:
+                        Button:
+                            background_color:(.6,.3,.8)
+                            text:"Exit"
+                            on_press:app.exitapp()
+    AdminLogin:
+        name:"AdminLogin"
+        BoxLayout:
+            canvas.before:
+                Color:
+                    rgb:(0,0,0)
+                Rectangle:
+                    size:self.size
+                    pos:self.pos
+            BoxLayout:
+                orientation:"vertical"
+                BoxLayout:
+                    orientation:"vertical"
+                    size_hint:(1,.2)
+                    Image:
+                        stretch: True
+                        source:"primelogo.jpg"
+                        size_hint:(1,.6)
+                BoxLayout:
+                    size_hint:(1,.8)
+                    Label:
+                        size_hint:(.3,1)
+                    BoxLayout:
+                        size_hint:(.4,1)
+                        orientation:"vertical"
+                        BoxLayout:
+                            orientation:"vertical"
+                            BoxLayout:
+                                orientation:"vertical"
+                                Label:
+                                    size_hint:(1,None)
+                                    height:"30dp"
+                                    text:"Password"
+                            BoxLayout:
+                                orientation:"vertical"
+                                TextInput:
+                                    id:attadmnval
+                                    multiline:False
+                                    size_hint:(1,None)
+                                    height:"30dp"
+                                    password:True
+                                    on_text_validate:root.validatepassadmin()
+                            BoxLayout:
+                                orientation:"vertical"
+                                Label:
+                                    id:adminpasswarning
+                                    size_hint:(1,None)
+                                    height:"30dp"
+                                    text:""
+                                    color:(1,0,0)
+                            BoxLayout:
+                                orientation:"vertical"
+                                Button:
+                                    id:valadmin
+                                    size_hint:(1,None)
+                                    disabled:True
+                                    height:"30dp"
+                                    text:"LOG IN"
+                                    color:(.4,.8,.3)
+
+                                Button:
+                                    size_hint:(1,None)
+                                    height:"30dp"
+                                    text:"Back"
+                                    on_press:root.current="welcome"
+                    Label:
+                        size_hint:(.3,1)
+    AdminDash:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
